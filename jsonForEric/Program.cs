@@ -23,12 +23,22 @@ namespace jsonForEric
             Console.WriteLine(whatever1);
 
 
-            // ****  This time with a dictionary  ***
+            // This time with a dictionary
 
             Dictionary<string, int> whatev = new Dictionary<string, int>() { { "eric", 3 }, { "joe", 2 }, { "david", 1 } };
             string whatever2 = JsonSerializer.Serialize<Dictionary<string, int>>(whatev); File.WriteAllText("testFile.json", whatever1);
             File.WriteAllText("C:/Users/Student/source/repos/jsonForEric/groupDict.json", whatever2);
             Console.WriteLine(whatever2);
+
+            // *** Read/import from a saved json file ***
+            string whatever3 = File.ReadAllText("C:/Users/Student/source/repos/jsonForEric/ericObj.json");
+            Person readFromJsonObj = JsonSerializer.Deserialize<Person>(whatever3);
+            Console.WriteLine($"The FName property of the imported object is: {readFromJsonObj.FName}");
+
+            string whatever4 = File.ReadAllText("C:/Users/Student/source/repos/jsonForEric/groupDict.json");
+            Dictionary<string, int> readFromJsonDict = JsonSerializer.Deserialize<Dictionary<string, int>>(whatever4);
+            Console.WriteLine($"The 'eric' key has a value of: {readFromJsonDict["eric"]}");
+
 
         }
     }
