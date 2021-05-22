@@ -26,7 +26,7 @@ namespace jsonForEric
             // This time with a dictionary
 
             Dictionary<string, int> whatev = new Dictionary<string, int>() { { "eric", 3 }, { "joe", 2 }, { "david", 1 } };
-            string whatever2 = JsonSerializer.Serialize<Dictionary<string, int>>(whatev); File.WriteAllText("testFile.json", whatever1);
+            string whatever2 = JsonSerializer.Serialize<Dictionary<string, int>>(whatev); 
             File.WriteAllText("C:/Users/Student/source/repos/jsonForEric/groupDict.json", whatever2);
             Console.WriteLine(whatever2);
 
